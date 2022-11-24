@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        "use strict";
+
+        let tonen = (geboorte, levensduur, koffie)  => {
+            let datum = new Date();
+            let leeftijd = datum.getFullYear() - geboorte;
+            document.write(`<p>Je bent nu ${leeftijd}. Tegen ${koffie} koppen koffie per dag zal je ${(levensduur - leeftijd) * 365 * koffie} koppen koffie drinken als je ${levensduur} jaar oud zal worden</p>`);
+        }
+        
+        let ingegeven = () => {
+            let geboortejaar = prompt("Wat is je geboortejaar?");
+            let verwachting = prompt("Hoe oud denk je te worden?");
+            let koffiePerDag = prompt("Hoeveel koppen koffie drink je per dag?")
+
+            if (geboortejaar == undefined || verwachting == undefined || koffiePerDag == undefined) {
+                document.write(`<p>U heeft geannuleerd.</p>`);
+                return false;
+            }
+            else if (geboortejaar.length == 0 || verwachting.length == 0 || koffiePerDag.length == 0) {
+                document.write(`<p>U heeft niets ingevuld.</p>`);
+                return false;
+            }
+            else if (isNaN(geboortejaar) || isNaN(verwachting) || isNaN(koffiePerDag)) {
+                document.write(`<p>Geen correcte ingave.</p>`);
+                return false;
+            }
+            else {
+                tonen(geboortejaar, verwachting, koffiePerDag);
+            }
+        }
+
+        ingegeven();
+
+        
+    
+
+        
+
+    </script>
+</body>
+</html>

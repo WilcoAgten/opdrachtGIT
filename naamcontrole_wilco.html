@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script type="text/javascript">
+        
+
+        let voornaam;
+        let achternaam;
+
+        function controle(naamInvoer) {
+            if (naamInvoer == undefined) {
+                document.write("Je hebt geannuleerd");
+                return false;
+            }
+            else if (naamInvoer.length == 0) {
+                document.write("Je hebt niets ingegeven");
+                return false;
+            }
+            else if (naamInvoer.length < 2) {
+                document.write("Je naam moet minstens 2 karakters bevatten");
+                return false;
+            }
+            else {
+               return (naamInvoer.charAt(0).toUpperCase()) + naamInvoer.substring(1) ;
+            }
+            
+        }
+
+        voornaam = controle(prompt("Wat is je voornaam?"));
+        if (voornaam != false) {
+            achternaam = controle(prompt("Wat is je achternaam?"));
+            if (achternaam != false) {
+                document.write(`<p>Hey ${voornaam} ${achternaam}! </p>`);
+            }
+        }
+
+
+    </script>
+</body>
+</html>
